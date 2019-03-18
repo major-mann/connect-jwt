@@ -21,11 +21,15 @@ function createJwtValidator({
     return async function validateJwt(request, response, next) {
         const token = userToken(request);
         if (token) {
-            request.user = await verifyToken(token);
+            try {
+                request.user = await verifyToken(token);
+                next();
+            } catch (ex) {
+                next(ex);
+            }
         } else {
-            throw new VerificationError('No token supplied', 'no-token');
+            next(new VerificationError('No token supplied', 'no-token'));
         }
-        next();
     }
 
     function userToken(request) {
