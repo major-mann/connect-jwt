@@ -33,7 +33,7 @@ function createJwtValidator({
             return bearerToken(request.headers[headerName]);
         } else if (cookieName && request.headers.cookie) {
             return cookieValue(request.headers.cookie, cookieName);
-        } else if (queryName && request.query.token[queryName]) {
+        } else if (queryName && request.query && request.query[queryName]) {
             return req.query[queryName];
         } else {
             return undefined;
