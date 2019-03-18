@@ -1,0 +1,15 @@
+{
+  "name": "@major-mann/connect-jwt",
+  "version": "0.0.1",
+  "description": "A JWT validation middleware that allows for multiple issuers",
+  "main": "src/index.js",
+  "keywords": [
+    "jwt",
+    "express"
+  ],
+  "author": "Calvin Mann <calvinmann+npm@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
+}
